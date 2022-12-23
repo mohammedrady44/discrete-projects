@@ -1,30 +1,59 @@
 ﻿using System;
 
-namespace project_2
+namespace project1
 {
     class Program
     {
         static void Main(string[] args)
         {
 
-            int n, i, sum;
-            Console.WriteLine(" Enter the first value : ");
+
+            int i, j, flag;
+            Console.WriteLine("enter the first value ");
             int x = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the last value : ");
+            Console.WriteLine("enter the last value ");
             int y = int.Parse(Console.ReadLine());
-            Console.WriteLine("The Perfect numbers are : ");
-            for (n = x; n <= y; n++)
+            Console.Write("\nPrime numbers between " + x
+                    + " and " + y + " are: ");
+
+            if (x == 1)
             {
-                i = 1;
-                sum = 0;
-                while (i < n)
+                Console.Write(x + " ");
+                x++;
+                if (x >= 2)
                 {
-                    if (n % i == 0)
-                        sum = sum + i;
-                    i++;
+                    Console.Write(x + " ");
+                    x++;
                 }
-                if (sum == n)
-                    Console.WriteLine(n);
+            }
+            if (x == 2)
+            {
+                Console.Write(x + " ");
+            }
+
+            if (x % 2 == 0)
+            {
+                x++;
+            }
+
+            for (i = x; i <= y; i += 2)
+            {
+
+                flag = 1;
+
+                for (j = 2; j * j <= i; ++j)
+                {
+                    if (i % j == 0)
+                    {
+                        flag = 0;
+                        break;
+                    }
+                }
+
+                if (flag == 1)
+                {
+                    Console.Write(i + " ");
+                }
             }
         }
     }
